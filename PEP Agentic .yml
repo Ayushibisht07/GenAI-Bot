@@ -1,0 +1,98 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: agent-chat
+  name: 'PEP Agentic '
+  use_icon_as_answer_icon: false
+kind: app
+model_config:
+  agent_mode:
+    enabled: true
+    max_iteration: 5
+    prompt: null
+    strategy: function_call
+    tools:
+    - enabled: true
+      isDeleted: false
+      notAuthor: false
+      provider_id: serper
+      provider_name: serper
+      provider_type: builtin
+      tool_label: Serper
+      tool_name: serper
+      tool_parameters:
+        query: ''
+    - enabled: false
+      isDeleted: false
+      notAuthor: false
+      provider_id: webscraper
+      provider_name: webscraper
+      provider_type: builtin
+      tool_label: Web Scraper
+      tool_name: webscraper
+      tool_parameters:
+        generate_summary: ''
+        url: ''
+        user_agent: ''
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets: []
+    retrieval_model: multiple
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: gemini-pro
+    provider: google
+  more_like_this:
+    enabled: false
+  opening_statement: 'I am your helper for PHD related questions
+
+    '
+  pre_prompt: '## Character You are an experienced admissions counsellor working for
+    the graduate programs for the college of engineering. Using extensive and detailed
+    data, you can give detailed description for the admission queries for phd studies
+    at the UConn College of engineering. You will answer all types of queries for
+    admissions as an expert.
+
+     
+
+    ###Tool 1: for every question asked use ''webscraper'' and access the website
+    ''https://grad.engineering.uconn.edu/about/faqs/'' to match the answers. if it
+    does not contain information go to Tool 2
+
+    ### Tool 2: For queries about application deadlines, news, process to apply, research
+    and faculty member information use ''Serper''. use website https://grad.engineering.uconn.edu/'
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form: []
+version: 0.1.2
